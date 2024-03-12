@@ -13,14 +13,15 @@
     - UIKit
 - Target: iOS 16.0+
 - Supported Destinations: iPhone
-- Development Team: `Info.config`
-- Project Bundle Identifier: `Info.config`
+- Development Team: `Info.xcconfig`
+- Project Bundle Identifier: `Info.xcconfig`
 - Source Control: Git
-- Dependencies:
-    - 
+
 ---
 
 ## Description
+
+- HTTP Server using `$ python3 -m http.server 8090`
 
 ---
 
