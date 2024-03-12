@@ -1,0 +1,69 @@
+#==============================================================================#
+# This file specifies intentionally untracked files that git should ignore.
+#==============================================================================#
+
+#==============================================================================#
+# File extensions to be ignored anywhere in the tree.
+#==============================================================================#
+# Temp files created by most text editors.
+*~
+# Merge files created by git.
+*.orig
+# vim swap files
+.*.sw[a-z]
+.sw?
+# Thumbnails
+._*
+
+#==============================================================================#
+# Explicit files to ignore (only matches one).
+#==============================================================================#
+.vimrc
+0.md
+
+#==============================================================================#
+# Xcode Configuration Files
+# DEVELOPMENT_TEAM
+# PRODUCT_BUNDLE_IDENTIFIER
+#==============================================================================#
+
+Configuration/Info.xcconfig
+
+#==============================================================================#
+# Directories to ignore.
+#==============================================================================#
+
+# Finder metadata
+.DS_Store
+
+# Visual Studio metadata
+.vs
+
+# Visual Studio Code Configurations
+.vscode
+
+# JetBrains
+.idea
+
+# clangd
+.cache
+.clangd
+
+# SwiftPM
+.build
+.swiftpm
+
+# Xcode (General)
+xcuserdata/
+build/
+DerivedData/
+*.ipa
+
+# Xcode (Project Specific)
+Package.resolved
+
+# Carthage
+Carthage/
+
+# CocoaPods
+Pods/
