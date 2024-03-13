@@ -6,7 +6,12 @@
             "type": "table",
             "rows": [
                 {
-                    "title": "First row"
+                    "title": "First row",
+                    "actionType": "alert",
+                    "action": {
+                        "title": "This is the first row",
+                        "message": "This is a message for the first row"
+                    }
                 },
                 {
                     "title": "Second row"

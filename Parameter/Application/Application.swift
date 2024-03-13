@@ -20,4 +20,10 @@ struct Screen: Decodable {
 
 struct Row: Decodable {
     let title: String
+    let action: AlertAction?
+}
+
+struct AlertAction: Decodable {
+    let title: String
+    let message: String
 }
