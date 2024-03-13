@@ -14,7 +14,11 @@
                     }
                 },
                 {
-                    "title": "Second row"
+                    "title": "Show a website",
+                    "actionType": "showWebsite",
+                    "action": {
+                        "url": "https://www.abhinaypratap.com"
+                    }
                 },
                 {
                     "title": "Third row"

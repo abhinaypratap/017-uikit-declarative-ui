@@ -5,6 +5,7 @@
 //  Created by Abhinay Pratap on 12/03/24.
 //
 
+import SafariServices
 import UIKit
 
 final class TableScreen: UITableViewController {
@@ -40,10 +41,13 @@ final class TableScreen: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let row = screen.rows[indexPath.row]
 
-        if let action = row.action {
+        if let action = row.action as? AlertAction {
             let vc = UIAlertController(title: action.title, message: action.message, preferredStyle: .alert)
             vc.addAction(UIAlertAction(title: "OK", style: .default))
             present(vc, animated: true)
+        } else if let action = row.action as? ShowWebsiteAction {
+            let vc = SFSafariViewController(url: action.url)
+            navigationController?.present(vc, animated: true)
         }
     }
 
