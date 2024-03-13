@@ -50,6 +50,14 @@
             "id": "second",
             "title": "Second Screen",
             "type": "table",
+            "rightButton": {
+                "title": "About",
+                "actionType": "alert",
+                "action": {
+                    "title": "Credits",
+                    "message": "abhinaypratap.com"
+                }
+            },
             "rows": [
                 {
                     "title": "Second screen first row",
