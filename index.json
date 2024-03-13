@@ -22,6 +22,52 @@
                 },
                 {
                     "title": "Third row"
+                },
+                {
+                    "title": "Show second screen",
+                    "actionType": "showScreen",
+                    "action": {
+                        "id": "second"
+                    }
+                },
+                {
+                    "title": "Share something",
+                    "actionType": "share",
+                    "action": {
+                        "text": "Hello, world!"
+                    }
+                },
+                {
+                    "title": "Play movie",
+                    "actionType": "playMovie",
+                    "action": {
+                        "url": "https://player.vimeo.com/external/321068858.hd.mp4?s=e2ae1cc4b993c474d1830c8dfbd4aa8335c8b562&profile_id=174"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "second",
+            "title": "Second Screen",
+            "type": "table",
+            "rows": [
+                {
+                    "title": "Second screen first row",
+                    "actionType": "alert",
+                    "action": {
+                        "title": "This is the first row",
+                        "message": "This is a message for the first row"
+                    }
+                },
+                {
+                    "title": "Show a website",
+                    "actionType": "showWebsite",
+                    "action": {
+                        "url": "https://www.abhinaypratap.com"
+                    }
+                },
+                {
+                    "title": "Third row"
                 }
             ]
         }

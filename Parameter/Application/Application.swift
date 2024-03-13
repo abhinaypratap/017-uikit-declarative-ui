@@ -38,6 +38,12 @@ struct Row: Decodable {
                 action = try container.decode(AlertAction.self, forKey: .action)
             case "showWebsite":
                 action = try container.decode(ShowWebsiteAction.self, forKey: .action)
+            case "showScreen":
+                action = try container.decode(ShowScreenAction.self, forKey: .action)
+            case "share":
+                action = try container.decode(ShareAction.self, forKey: .action)
+            case "playMovie":
+                action = try container.decode(PlayMovieAction.self, forKey: .action)
             default:
                 fatalError("Unknown action type: \(actionType)")
             }
@@ -47,13 +53,38 @@ struct Row: Decodable {
     }
 }
 
-protocol Action: Decodable { }
+protocol Action: Decodable {
+    var presentsNewScreen: Bool { get }
+}
 
 struct AlertAction: Action {
     let title: String
     let message: String
+
+    var presentsNewScreen: Bool { false }
 }
 
 struct ShowWebsiteAction: Action {
     let url: URL
+
+    var presentsNewScreen: Bool { true }
+}
+
+struct ShowScreenAction: Action {
+    let id: String
+
+    var presentsNewScreen: Bool { true }
+}
+
+struct ShareAction: Action {
+    let text: String?
+    let url: URL?
+
+    var presentsNewScreen: Bool { false }
+}
+
+struct PlayMovieAction: Action {
+    let url: URL
+
+    var presentsNewScreen: Bool { true }
 }

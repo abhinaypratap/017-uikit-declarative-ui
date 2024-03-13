@@ -5,12 +5,12 @@
 //  Created by Abhinay Pratap on 12/03/24.
 //
 
-import SafariServices
 import UIKit
 
 final class TableScreen: UITableViewController {
 
     var screen: Screen
+    var navigationManager: NavigationManager?
     var reuseIdentifier = "reuse-id"
 
     init(screen: Screen) {
@@ -34,20 +34,29 @@ final class TableScreen: UITableViewController {
         var content = cell.defaultContentConfiguration()
         content.text = row.title
         cell.contentConfiguration = content
+
+        if let action = row.action {
+
+            cell.selectionStyle = .default
+
+            if action.presentsNewScreen {
+                cell.accessoryType = .disclosureIndicator
+            } else {
+                cell.accessoryType = .none
+            }
+        } else {
+            cell.selectionStyle = .none
+        }
+
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         let row = screen.rows[indexPath.row]
 
-        if let action = row.action as? AlertAction {
-            let vc = UIAlertController(title: action.title, message: action.message, preferredStyle: .alert)
-            vc.addAction(UIAlertAction(title: "OK", style: .default))
-            present(vc, animated: true)
-        } else if let action = row.action as? ShowWebsiteAction {
-            let vc = SFSafariViewController(url: action.url)
-            navigationController?.present(vc, animated: true)
+        navigationManager?.execute(row.action, from: self)
+        if row.action?.presentsNewScreen == false {
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
 

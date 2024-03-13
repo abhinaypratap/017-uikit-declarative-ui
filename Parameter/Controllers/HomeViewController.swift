@@ -9,6 +9,7 @@ class HomeViewController: UIViewController {
         let navigationManager = NavigationManager()
         navigationManager.fetch { initialScreen in
             let vc = TableScreen(screen: initialScreen)
+            vc.navigationManager = navigationManager
             self.navigationController?.viewControllers = [vc]
         }
     }
